@@ -34,7 +34,7 @@ const Canvas = observer(() => {
 
     useEffect(() => {
         if (canvas.username) {
-            const socket = new WebSocket('ws://https://backpaintonlinewebsocket.herokuapp.com')
+            const socket = new WebSocket('wss://https://backpaintonlinewebsocket.herokuapp.com')
             canvas.setSocket(socket)
             canvas.setSessionid(params.id)
             tool.setTool(new Brush(canvasRef.current, socket, params.id))
