@@ -1,0 +1,44 @@
+@import './vars.scss';
+
+.bar {
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.toolbar {
+    z-index: 10;
+    &-btn {
+        width: 25px;
+        height: 25px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        outline: none;
+        margin-left: 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+    input {
+        background-color: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+    .undo {
+        margin-left: auto;
+    }
+    .save {
+        margin-right: 10px;
+    }
+}
+
+.settings {
+    top: 40px;
+}
