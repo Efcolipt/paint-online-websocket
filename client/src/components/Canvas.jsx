@@ -18,13 +18,13 @@ const Canvas = observer(() => {
 
     const mousedownHandler = () => {
         canvas.pushToUndo(canvasRef.current.toDataURL())
-        axios.post(`http://localhost:5000/image?id=${params.id}`, {img: canvasRef.current.toDataURL()})
+        axios.post(`https://backpaintonlinewebsocket.herokuapp.com/image?id=${params.id}`, {img: canvasRef.current.toDataURL()})
             .then(response => console.log(response.data))
     }
 
     useEffect(() => {
         canvas.setCanvas(canvasRef.current)
-        axios.get(`http://localhost:5000/image?id=${params.id}`)
+        axios.get(`https://backpaintonlinewebsocket.herokuapp.com/image?id=${params.id}`)
             .then(response => {
                 const img = new Image()
                 img.src = response.data
@@ -34,7 +34,7 @@ const Canvas = observer(() => {
 
     useEffect(() => {
         if (canvas.username) {
-            const socket = new WebSocket('ws://localhost:5000')
+            const socket = new WebSocket('ws://https://backpaintonlinewebsocket.herokuapp.com')
             canvas.setSocket(socket)
             canvas.setSessionid(params.id)
             tool.setTool(new Brush(canvasRef.current, socket, params.id))
